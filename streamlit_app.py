@@ -43,7 +43,7 @@ def getAnswers(questions):
 # Page Config
 st.set_page_config(page_title="Hallo Hub")  # , layout="wide")
 
-st.title('🎈 Hallo! Helpers')
+st.title('🎈 Hallo! Hub')
 
 # Search Bar
 query = st.text_input("Geben Sie hier Ihre Anfrage ein",
@@ -52,19 +52,19 @@ query = st.text_input("Geben Sie hier Ihre Anfrage ein",
 response = getAnswers(query)
 
 # Suggested Answer
-st.subheader("Retrieved Answer")
+st.subheader("Vorgeschlagene Antwort")
 st.write(response['output']['text'])
 
 # Action Buttons
 col1, col2, col3, _ = st.columns([1, 1, 1, 2])
 with col1:
-    if st.button("📋 Copy", key='copy_button',disabled=True):
+    if st.button("📋 Kopieren", key='copy_button',disabled=True):
         pyperclip.copy(response['output']['text'])
         st.toast("Copied to clipboard!")
 with col2:
-    st.button("✏️ Edit", key='edit_button', disabled=True)
+    st.button("✏️ Bearbeiten", key='edit_button', disabled=True)
 with col3:
-    if st.button("🔄 Refine", key='refine_button', disabled=True):
+    if st.button("🔄 Verfeinern", key='refine_button', disabled=True):
         response = getAnswers(query)
 
 # Related Topics
@@ -81,13 +81,13 @@ with col3:
 #     st.write("Theme tag")
 
 # Info Sources
-st.subheader("Sources used for this answer")
+st.subheader("Für diese Antwort verwendete Quellen")
 info_sources = response['citations'][0]['retrievedReferences']
 for id, source in enumerate(info_sources):
     quote = source['content']['text']
     location = source['location']['s3Location']['uri'].lstrip(
         's3://dsee-data/hackathon/')
-    with st.expander(f"Source {id+1} : {location}"):
-        st.write(f'"{quote}"')
+    with st.expander(f"Quelle {id+1} : {location}"):
+        st.write(f'Relevanter Text in der Quelle :\t"{quote}"')
         # st.write(f"Source : {location}")
-        st.link_button("Go to Source >", "#",disabled=True)
+        st.link_button("Zur Quelle >", "#",disabled=True)
