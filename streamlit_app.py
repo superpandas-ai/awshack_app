@@ -46,8 +46,8 @@ st.set_page_config(page_title="Hallo Hub")  # , layout="wide")
 st.title('🎈 Hallo! Helpers')
 
 # Search Bar
-query = st.text_input("Search in Database",
-                      "Welche Fundraising-Strategie haben wir für die Finanzplanung der Vereine im Jahr 2024?")
+query = st.text_input("Geben Sie hier Ihre Anfrage ein",
+                      )
 
 response = getAnswers(query)
 
