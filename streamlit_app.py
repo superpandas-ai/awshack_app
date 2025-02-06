@@ -4,6 +4,12 @@ import botocore
 from aws_utils import getAnswers, getTags
 import uuid
 
+
+def clear_text():
+    st.session_state["text"] = ""
+    st.session_state['sessions'] = []
+
+
 # Page Config
 st.set_page_config(page_title="Hallo Hub", layout="wide")
 
@@ -17,10 +23,14 @@ if 'response' not in st.session_state:
 st.sidebar.image('assets/dsee.png', use_container_width=True)
 
 # st.sidebar.text_input('Feedback')
+st.sidebar.markdown('Sitzungsverlauf')
+container = st.sidebar.container(height=600)
+st.sidebar.button('Verlauf löschen', disabled=False, on_click=clear_text)
+st.sidebar.markdown('App Ver : 0.1.0')
 
 # Search Bar
 st.subheader("Geben Sie hier Ihre Anfrage ein")
-query = st.text_area("Geben Sie hier Ihre Anfrage ein",
+query = st.text_area("input",
                      "", label_visibility="hidden", key='text')
 
 if query == "":
@@ -33,20 +43,11 @@ try:
 except botocore.exceptions.EndpointConnectionError:
     st.error('Error getting answer')
 
-st.sidebar.markdown('Sitzungsverlauf')
-with st.sidebar.container(height=600):
-    for session in st.session_state['sessions']:
-        # st.write()
-        st.button(session[:40], on_click=getAnswers(
-            session), use_container_width=True, key=str(uuid.uuid4()))
+for session in st.session_state['sessions']:
+    # st.write()
+    container.button(session[:40], on_click=getAnswers(
+        session), use_container_width=True, key=str(uuid.uuid4()))
 
-
-def clear_text():
-    st.session_state["text"] = ""
-    st.session_state['sessions'] = []
-
-
-st.sidebar.button('Verlauf löschen', disabled=False, on_click=clear_text)
 
 st.sidebar.markdown('Help: mailto://help@d-s-e-e.de')
 st.sidebar.markdown('App Ver : 0.1.0')
