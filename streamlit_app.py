@@ -58,13 +58,13 @@ st.write(response['output']['text'])
 # Action Buttons
 col1, col2, col3, _ = st.columns([1, 1, 1, 2])
 with col1:
-    if st.button("📋 Copy", key='copy_button'):
+    if st.button("📋 Copy", key='copy_button',disabled=True):
         pyperclip.copy(response['output']['text'])
         st.toast("Copied to clipboard!")
 with col2:
-    st.button("✏️ Edit", key='edit_button')
+    st.button("✏️ Edit", key='edit_button', disabled=True)
 with col3:
-    if st.button("🔄 Refine", key='refine_button'):
+    if st.button("🔄 Refine", key='refine_button', disabled=True):
         response = getAnswers(query)
 
 # Related Topics
@@ -90,4 +90,4 @@ for id, source in enumerate(info_sources):
     with st.expander(f"Source {id+1} : {location}"):
         st.write(f'"{quote}"')
         # st.write(f"Source : {location}")
-        st.link_button("Go to Source >", "#")
+        st.link_button("Go to Source >", "#",disabled=True)
