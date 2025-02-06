@@ -47,7 +47,7 @@ st.title('🎈 Hallo! Helpers')
 
 # Search Bar
 query = st.text_input("Geben Sie hier Ihre Anfrage ein",
-                      )
+                      "Welche Fundraising-Strategie haben wir für die Finanzplanung der Vereine im Jahr 2024?")
 
 response = getAnswers(query)
 
