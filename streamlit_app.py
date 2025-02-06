@@ -14,8 +14,7 @@ if 'response' not in st.session_state:
     st.session_state['response'] = {}
 
 # Sidebar
-st.sidebar.image('assets/dsee_logo.png', width=100)
-st.sidebar.title('🎈 Hallo! Hub')
+st.sidebar.image('assets/dsee.png', use_container_width=True)
 
 # st.sidebar.text_input('Feedback')
 
