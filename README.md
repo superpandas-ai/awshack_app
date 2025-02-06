@@ -1,9 +1,11 @@
-# 📦 Streamlit App Starter Kit 
+# 📦 Hallo! Helpers Streamlit App
 ```
-⬆️ (Replace above with your app's name)
 ```
 
-Description of the app ...
+## Installation and Usage
+First install the python requirements using `pip install -r requirements.txt`
+You will need AWS Credentials to run the app
+Then run the app using `streamlit run streamlit_app.py`
 
 ## Demo App
 
@@ -13,13 +15,3 @@ Description of the app ...
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/app-starter-kit?quickstart=1)
 
-## Section Heading
-
-This is filler text, please replace this with text for this section.
-
-## Further Reading
-
-This is filler text, please replace this with a explanatory text about further relevant resources for this repo
-- Resource 1
-- Resource 2
-- Resource 3

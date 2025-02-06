@@ -49,9 +49,6 @@ for session in st.session_state['sessions']:
         session), use_container_width=True, key=str(uuid.uuid4()))
 
 
-st.sidebar.markdown('Help: mailto://help@d-s-e-e.de')
-st.sidebar.markdown('App Ver : 0.1.0')
-
 st.subheader("Vorgeschlagene Antwort")  # Suggested Answer
 with st.container(border=True):
     st.markdown(st.session_state['response']['output']['text'])
