@@ -53,12 +53,13 @@ response = getAnswers(query)
 
 # Suggested Answer
 st.subheader("Vorgeschlagene Antwort")
-st.write(response['output']['text'])
+with st.container(border=True):
+    st.write(response['output']['text'])
 
 # Action Buttons
 col1, col2, col3, _ = st.columns([1, 1, 1, 2])
 with col1:
-    if st.button("📋 Kopieren", key='copy_button',disabled=True):
+    if st.button("📋 Kopieren", key='copy_button', disabled=True):
         pyperclip.copy(response['output']['text'])
         st.toast("Copied to clipboard!")
 with col2:
@@ -90,4 +91,4 @@ for id, source in enumerate(info_sources):
     with st.expander(f"Quelle {id+1} : {location}"):
         st.write(f'Relevanter Text in der Quelle :\t"{quote}"')
         # st.write(f"Source : {location}")
-        st.link_button("Zur Quelle >", "#",disabled=True)
+        st.link_button("Zur Quelle >", "#", disabled=True)
