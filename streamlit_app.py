@@ -47,14 +47,17 @@ st.title('🎈 Hallo! Hub')
 
 # Search Bar
 query = st.text_input("Geben Sie hier Ihre Anfrage ein",
-                      "Welche Fundraising-Strategie haben wir für die Finanzplanung der Vereine im Jahr 2024?")
+                      "")
+
+if query == "":
+    st.stop()
 
 response = getAnswers(query)
 
 # Suggested Answer
 st.subheader("Vorgeschlagene Antwort")
 with st.container(border=True):
-    st.write(response['output']['text'])
+    st.markdown(response['output']['text'])
 
 # Action Buttons
 col1, col2, col3, _ = st.columns([1, 1, 1, 2])
