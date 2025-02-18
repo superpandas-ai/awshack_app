@@ -1,0 +1,33 @@
+[light]
+primaryColor = "#FF4B4B"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F2F6"
+textColor = "#262730"
+font = "sans serif"
+
+[dark]
+primaryColor = "#FF4B4B" 
+backgroundColor = "#0E1117"
+secondaryBackgroundColor = "#262730"
+textColor = "#FAFAFA"
+font = "sans serif"
+
+[blue]
+primaryColor = "#1E88E5"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#E3F2FD"
+textColor = "#262730"
+font = "sans serif"
+
+[blue2]
+primaryColor="#5681d0"
+backgroundColor="#212750"
+secondaryBackgroundColor="#1a1a3d"
+textColor="#f8f8f2"
+
+[green]
+primaryColor = "#4CAF50"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#E8F5E9"
+textColor = "#262730"
+font = "sans serif"
